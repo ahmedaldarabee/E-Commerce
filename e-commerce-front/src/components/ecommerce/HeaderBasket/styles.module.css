@@ -1,0 +1,25 @@
+.flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.basketContainer {
+    position: relative;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.basketQuantity {
+    background-color: #0dcaf0;
+    color: white;
+    height: 22px;
+    width: 22px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid none;
+    position: absolute;
+    top: -16px;
+    right: -5px;
+    font-size: 12px;
+}
