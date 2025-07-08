@@ -1,0 +1,5 @@
+"postId": "1"  be as a fornkey as exist in the next section
+
+"comments": [
+    { "id": "1", "text": "a comment about post 1", "postId": "1" }
+],
