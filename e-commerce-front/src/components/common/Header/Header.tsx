@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { Badge, Container,Nav,Navbar } from 'react-bootstrap'
 import styles from './styles.module.css'
-import { HeaderBasket } from '../../ecommerce';
+import { HeaderBasket } from '@components/ecommerce';
+
+import { NavLink } from 'react-router-dom';
 
 const { headerContainer , headerLogo} = styles;
 
@@ -23,15 +23,18 @@ const Header = () => {
                         <Navbar.Collapse id="basic-navbar-nav">
                             {/* info links */}
                             <Nav className="me-auto">
-                                <Nav.Link href="#home">Home</Nav.Link>
-                                <Nav.Link href="#link">Categories</Nav.Link>
-                                <Nav.Link href="#link">About</Nav.Link>
+                                
+                                {/* Nav.Link: that mean this compo nent from bootstrap that act as={NavLink} */}
+                                
+                                <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+                                <Nav.Link as={NavLink} to="categories">Categories</Nav.Link>
+                                <Nav.Link as={NavLink} to="about">About</Nav.Link>
                             </Nav>
 
                             {/* login links */}
                             <Nav>
-                                <Nav.Link href="#home">Login</Nav.Link>
-                                <Nav.Link href="#link">Register</Nav.Link>
+                                <Nav.Link as={NavLink} to="login">Login</Nav.Link>
+                                <Nav.Link as={NavLink} to="register">Register</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                 </Container>

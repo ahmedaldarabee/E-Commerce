@@ -1,0 +1,15 @@
+/* to provide global file, you need to call it in main.tsx | main file for all of app! */
+.active {
+    text-decoration: underline;
+}
+
+.backToHome {
+    transition: all 0.3s;
+    cursor: pointer;
+    text-decoration:none;
+    color: black;
+    text-transform: capitalize;
+}
+.backToHome:hover {
+    color: #1b8edb;
+}
