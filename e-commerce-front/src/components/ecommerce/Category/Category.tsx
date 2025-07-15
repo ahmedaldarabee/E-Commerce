@@ -10,7 +10,7 @@ const Category = () => {
                         alt=""
                     />
                 </div>
-            <h4 className={categoryTitle}>Title</h4>
+            <h4 className={categoryTitle}>title</h4>
             </div>
     );
 };

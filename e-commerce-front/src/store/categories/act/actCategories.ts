@@ -16,9 +16,12 @@ const actGetCategories = createAsyncThunk("categories/actGetCategories",async (_
         return res.data;
 
     } catch (error) {
-        if(axios.isAxiosError(error)){
+        // Guard
+        if(axios.isAxiosError(error))
             return rejectWithValue(error.response?.data.message || error.message);
-        }
+        
         return rejectWithValue("Un Expected Error!");
     }
 })
+
+export default actGetCategories;
