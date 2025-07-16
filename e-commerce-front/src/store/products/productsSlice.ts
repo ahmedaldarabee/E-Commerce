@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import actGetCategories from "./act/actCategories";
 import type { TLoading } from "@customTypes/shared";
-import type { TCategories } from "@customTypes/category";
+import type { TProducts } from "@customTypes/product";
+import actGetProductsByCatPrefix from "./act/actGetProductsByCatPrefix";
 
 interface ICategoriesState {
-    records: TCategories[];
+    records: TProducts[];
     loading: TLoading;
     error: string | null;
 }
@@ -15,22 +15,27 @@ const initialState:ICategoriesState = {
     error: null,
 };
 
-const categoriesSlice = createSlice({
-    name: "categories",
+const productsSlice = createSlice({
+    name: "products",
     initialState,
-    reducers:{},
+    reducers:{
+        // after exit from each product page that clean records
+        productsCleanUp: (state) => {
+            state.records = []
+        }
+    },
     extraReducers: (builder) => {
         // first state to the data
-        builder.addCase(actGetCategories.pending, (state) => {
+        builder.addCase(actGetProductsByCatPrefix.pending, (state) => {
             state.loading = "pending";
             state.error = null;
         });
-        builder.addCase(actGetCategories.fulfilled, (state,action) => {
+        builder.addCase(actGetProductsByCatPrefix.fulfilled, (state,action) => {
             state.loading = "succeeded";
             // Guard
             state.records = action.payload;
         });
-        builder.addCase(actGetCategories.rejected, (state,action) => {
+        builder.addCase(actGetProductsByCatPrefix.rejected, (state,action) => {
             state.loading = "failed";
             if(action.payload && typeof action.payload === "string"){
                 state.error = action.payload;
@@ -39,5 +44,6 @@ const categoriesSlice = createSlice({
     }
 })
 
-export {actGetCategories };
-export default categoriesSlice.reducer;
+export const {productsCleanUp} = productsSlice.actions;
+export {actGetProductsByCatPrefix};
+export default productsSlice.reducer;
