@@ -35,58 +35,66 @@
         {
         "id": 1,
         "title": "Regular Fit Jersey top",
-        "price": "249.00",
+        "price": 249,
         "cat_prefix": "men",
-        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg"
+        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg",
+        "max":4
         },
         {
         "id": 2,
         "title": "Regular Fit Jersey top",
-        "price": "229.00",
+        "price": 229,
         "cat_prefix": "men",
-        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg"
+        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg",
+        "max":4
         },
         {
         "id": 3,
         "title": "Cotton polo shirt",
-        "price": "200.00",
+        "price": 200,
         "cat_prefix": "men",
-        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg"
+        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg",
+        "max":4
         },
         {
         "id": 4,
         "title": "Cotton t-shirt",
-        "price": "100.00",
+        "price": 100,
         "cat_prefix": "women",
-        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg"
+        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg",
+        "max":4
         },
         {
         "id": 5,
         "title": "Sweatshirt shorts",
-        "price": "300.00",
+        "price": 300,
         "cat_prefix": "women",
-        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg"
+        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg",
+        "max":4
         },
         {
         "id": 6,
         "title": "Velour top",
-        "price": "300.00",
+        "price": 300,
         "cat_prefix": "kids",
-        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg"
+        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg",
+        "max":4
         },
         {
         "id": 9,
         "title": "Pile all-in-one suit with ears",
-        "price": "500.00",
+        "price": 500,
         "cat_prefix": "baby",
-        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg"
+        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg",
+        "max":4
         },
         {
         "id": 17,
         "title": "Regular Fit football shirt",
-        "price": "449.00",
+        "price": 449,
         "cat_prefix": "sport",
-        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg"
+        "img": "https://thumbs.dreamstime.com/b/product-icon-symbol-creative-sign-quality-control-icons-collection-filled-flat-computer-mobile-illustration-logo-150923733.jpg",
+        "max":4
         }
     ]
 }

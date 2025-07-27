@@ -8,7 +8,8 @@ import type { RootState } from "@store/index";
 // but when it will not have a changes it will return last value that stored!
 
 const getCartTotalQuantitySelector = createSelector((state:RootState) => state.cartSlice.items,(items) => {
-    const totalQuantity = Object.values(items).reduce((preValue,nextValue) => {
+    const totalQuantity = Object.values(items).reduce(
+        (preValue,nextValue) => {
         return preValue+nextValue
     },0);
     return totalQuantity;
