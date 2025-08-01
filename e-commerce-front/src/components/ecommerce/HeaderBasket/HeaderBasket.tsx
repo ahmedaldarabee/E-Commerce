@@ -4,17 +4,15 @@ import { useAppSelector } from '@store/hooks'
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const { basketContainer, basketQuantity , flexCenter,pumpCartQuantity} = styles
+const { container, totalNum , flexCenter,pumpAnimate} = styles
 
 const HeaderBasket = () => {
-
     const navigate = useNavigate();
-
-    // cartItems = totalQuantity
+  // cartItems that be as total quantity
     const cartItems = useAppSelector(getCartTotalQuantitySelector);
     const [isAnimated,setIsAnimated] = useState(false);
 
-    const quantityStyle = `${basketQuantity} ${ isAnimated ? pumpCartQuantity : '' }`
+    const quantityStyle = `${totalNum} ${ isAnimated ? pumpAnimate : '' }`
 
     useEffect(() => {
         // that mean we avoid enable this function when we don't have any data stored!
@@ -31,13 +29,14 @@ const HeaderBasket = () => {
         return () => clearTimeout(debounce);
     },[cartItems])
 
-    // const totalQuantity = Object.values(cartItems).reduce((preValue,nextValue) => preValue+nextValue,0);
-    // 0 as a initialValue
-    
     return (
-        <div className={basketContainer} onClick={() => navigate("/cart")}>
+        <div className={container} onClick={() => navigate("/cart")}>
             <img src="/src/assets/svg/cart.png" alt="basket icon" />
-            <div className={`${quantityStyle} ${flexCenter}`}>{cartItems}</div>
+            {
+                cartItems > 0 && (
+                    <div className={`${quantityStyle} ${flexCenter}`}>{cartItems}</div>
+                )
+            }
         </div>
     )
 }

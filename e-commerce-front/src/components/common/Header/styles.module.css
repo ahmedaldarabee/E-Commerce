@@ -21,3 +21,12 @@
     display: block;
     margin-right: 5px;
 }
+
+.flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gap10{
+    gap: 10px;
+}

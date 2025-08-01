@@ -5,6 +5,7 @@ import {actGetProductsByItems,cartItemChangeQuantity,cartItemRemove} from "@stor
 
 import { useAppDispatch, useAppSelector } from "@store/hooks"
 import { useCallback, useEffect } from "react";
+import { FaOpencart } from "react-icons/fa";
 
 const Cart = () => {
     const dispatch = useAppDispatch();
@@ -30,7 +31,7 @@ const Cart = () => {
 
     return (
         <>
-            <Heading>cart information</Heading>
+            <Heading>cart information's <FaOpencart /> </Heading>
             <Loading error={error} status={loading}>
                 { products.length ?
                 

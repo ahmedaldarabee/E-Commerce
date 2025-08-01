@@ -1,10 +1,10 @@
 import { Badge, Container,Nav,Navbar } from 'react-bootstrap'
 import styles from './styles.module.css'
-import { HeaderBasket } from '@components/ecommerce';
-
+import { HeaderBasket,HeaderWishlist } from '@components/ecommerce';
+import clsx from 'clsx';
 import { NavLink } from 'react-router-dom';
 
-const { headerContainer , headerLogo} = styles;
+const { headerContainer , headerLogo,flexCenter,gap10} = styles;
 
 const Header = () => {
     return (
@@ -12,10 +12,13 @@ const Header = () => {
             <div className={headerContainer}>
                 <h1 className={headerLogo}>
                     <span>Darabee </span> 
-                    <Badge>Store</Badge> {/* custom name */}
+                    <Badge>Store</Badge>
                 </h1>
                 
-                <HeaderBasket />
+                <div className={clsx(flexCenter,gap10)}>
+                    <HeaderWishlist />
+                    <HeaderBasket />
+                </div>
             </div>
             <Navbar expand="lg" className="bg-body-tertiary" bg='dark' data-bs-theme="dark">
                 <Container>

@@ -3,6 +3,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+}
+
+.flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .productImg img {
@@ -24,4 +31,19 @@
 
 .product h3 {
     font-size: 13px;
+}
+
+.wishlistBtn {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 28px !important;
+    height:  28px !important;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out
+}
+
+.wishlistBtn:hover {
+    transform: scale(1.2);
 }
