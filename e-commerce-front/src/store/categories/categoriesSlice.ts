@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import actGetCategories from "./act/actCategories";
 import type { TLoading } from "@customTypes/shared";
 import type { TCategories } from "@customTypes/category";
+import isString from "@customTypes/guard";
 
 interface ICategoriesState {
     records: TCategories[];
@@ -18,7 +19,11 @@ const initialState:ICategoriesState = {
 const categoriesSlice = createSlice({
     name: "categories",
     initialState,
-    reducers:{},
+    reducers:{
+        categoriesRecordsCleanUp: (state) => {
+            state.records = []
+        }
+    },
     extraReducers: (builder) => {
         // first state to the data
         builder.addCase(actGetCategories.pending, (state) => {
@@ -27,12 +32,11 @@ const categoriesSlice = createSlice({
         });
         builder.addCase(actGetCategories.fulfilled, (state,action) => {
             state.loading = "succeeded";
-            // Guard
-            state.records = action.payload;
+            state.records = action.payload || [];
         });
         builder.addCase(actGetCategories.rejected, (state,action) => {
             state.loading = "failed";
-            if(action.payload && typeof action.payload === "string"){
+            if(isString(action.payload )){
                 state.error = action.payload;
             }
         });
@@ -40,4 +44,5 @@ const categoriesSlice = createSlice({
 })
 
 export {actGetCategories };
+export const { categoriesRecordsCleanUp } = categoriesSlice.actions;
 export default categoriesSlice.reducer;

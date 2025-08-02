@@ -1,23 +1,13 @@
 import { Category } from "@components/ecommerce";
-import { useAppDispatch, useAppSelector } from "@store/hooks";
-import { useEffect } from "react";
-import { actGetCategories } from "@store/categories/categoriesSlice";
 import { Loading } from "@components/feedback";
 import { GridList, Heading } from "@components/common";
+import useCategories from "@hooks/useCategories";
 
 const Categories = () => {
-    const dispatch = useAppDispatch();
-    // categoriesSlice it will accessed from store.
-    const {loading , error, records} = useAppSelector((state) => state.categoriesSlice);
-    
-    useEffect(() => {
-        // !records.length same idea of -> records.length === 0
-        if(!records.length) dispatch(actGetCategories())
-    },[dispatch,records]);
-
+    const {loading,error,records} = useCategories();
     return (
         <>
-            <Heading>categories page</Heading>
+            <Heading title={`categories`} />
             <Loading status={loading} error={error}>
                 <GridList
                     records={records}

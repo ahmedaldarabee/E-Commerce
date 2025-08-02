@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Container } from "react-bootstrap"
 import styles from "./styles.module.css"
 import {Header,Footer} from "@components/common";

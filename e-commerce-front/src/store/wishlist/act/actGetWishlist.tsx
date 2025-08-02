@@ -1,12 +1,13 @@
 import type { TProducts } from "@customTypes/product";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import axiosErrorHandler from "src/utils/axiosErrorHandler";
 import axios from "axios";
 
 type TResponse = TProducts[];
 
 // wishlist [ slice-name ] / actGetWishlist [action that exist in extra-reducer]
 const actGetWishlist = createAsyncThunk("wishlist/actGetWishlist",async (_,thunkAPI)=>{
-    const { rejectWithValue, fulfillWithValue } = thunkAPI;
+    const { rejectWithValue, fulfillWithValue , signal } = thunkAPI;
 
     try {
         // to get all wishlist
@@ -17,19 +18,16 @@ const actGetWishlist = createAsyncThunk("wishlist/actGetWishlist",async (_,thunk
             return fulfillWithValue([]);
         }
 
-
         const concatenatedItemsId = userWishlist.data.
         map((el) => `id=${el.productId}`).join('&')
 
-        const response = await axios.get<TResponse>(`/products?${concatenatedItemsId}`)
+        const response = await axios.get<TResponse>(`/products?${concatenatedItemsId}`,{
+            signal
+        })
         return response.data;
 
     } catch (error) {
-        if(axios.isAxiosError(error)){
-            rejectWithValue(error.response?.data.message || error.message);
-        }else{
-            rejectWithValue("Un Expected Error - get wishlist page.");
-        }
+        return rejectWithValue(axiosErrorHandler(error));
     }
 
 

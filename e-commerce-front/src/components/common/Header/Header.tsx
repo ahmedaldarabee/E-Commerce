@@ -1,24 +1,21 @@
 import { Badge, Container,Nav,Navbar } from 'react-bootstrap'
 import styles from './styles.module.css'
-import { HeaderBasket,HeaderWishlist } from '@components/ecommerce';
-import clsx from 'clsx';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import HeaderLeftBar from './HeaderLeftBar/HeaderLeftBar';
 
-const { headerContainer , headerLogo,flexCenter,gap10} = styles;
+const { headerContainer , headerLogo} = styles;
 
 const Header = () => {
+    const navigate = useNavigate();
     return (
         <header>
             <div className={headerContainer}>
-                <h1 className={headerLogo}>
+                <h1 className={headerLogo} onClick={() => navigate("/")}>
                     <span>Darabee </span> 
                     <Badge>Store</Badge>
                 </h1>
                 
-                <div className={clsx(flexCenter,gap10)}>
-                    <HeaderWishlist />
-                    <HeaderBasket />
-                </div>
+                <HeaderLeftBar/>
             </div>
             <Navbar expand="lg" className="bg-body-tertiary" bg='dark' data-bs-theme="dark">
                 <Container>

@@ -1,54 +1,93 @@
-import MainLayout from '@layouts/MainLayout/MainLayout'
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import Home from '@pages/Home';
-import Wishlist from '@pages/Wishlist';
-import Categories from '@pages/Categories';
+const MainLayout = lazy(() => import("@layouts/MainLayout/MainLayout"));
+const Home       = lazy(() => import("@pages/Home"));
+const Wishlist   = lazy(() => import("@pages/Wishlist"));
+const Categories = lazy(() => import("@pages/Categories"));
 
-import Products from '@pages/Products';
-import About from '@pages/About';
-import Login from '@pages/Login';
+const Cart       = lazy(() => import("@pages/Cart"));
+const Products   = lazy(() => import("@pages/Products"));
+const About      = lazy(() => import("@pages/About"));
 
-import Register from '@pages/Register';
-import Error from '@pages/Error';
-import Cart from '@pages/Cart';
+const Login      = lazy(() => import("@pages/Login"));
+const Register   = lazy(() => import("@pages/Register"));
+const Error      = lazy(() => import("@pages/Error"));
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <MainLayout/>,
+        element: (
+            <Suspense fallback="loading main page, please wait...">
+                <MainLayout/>
+            </Suspense>
+        ),
         errorElement:<Error />,
         children: [
             {
                 index:true,
-                element: <Home />
+                element: (
+                    <Suspense fallback="loading home page, please wait...">
+                        <Home />
+                    </Suspense>
+                )
             },{
                 path:"/categories",
-                element: <Categories/>
+                element:  (
+                    <Suspense fallback="loading categories page, please wait...">
+                        <Categories/>
+                    </Suspense>
+                ) 
             },{
                 path:"/categories/products/:prefix",
-                element: <Products />,
+                element: (
+                    <Suspense fallback="loading products page, please wait...">
+                        <Products />
+                    </Suspense>
+                )  ,
                 loader: ({params}) => {
                     if(typeof params.prefix !== "string" || !/^[a-z]+$/gi.test(params.prefix)){
-                        throw new Response("Bad Request",{ statusText:"This Category Not Found!", status:400 })
+                        throw new Response("Bad Request",{ 
+                                statusText:"This Category Not Found!", status:400 
+                        })
                     }
                     return true;
                 }
             },{
                 path: "/about",
-                element: <About/>
+                element: (
+                    <Suspense fallback="loading about page, please wait...">
+                        <About/>
+                    </Suspense>
+                )  
             },{
                 path: "/login",
-                element: <Login />
+                element: (
+                    <Suspense fallback="loading login page, please wait...">
+                        <Login />
+                    </Suspense>
+                )  
             },{
                 path: "/register",
-                element: <Register />
+                element: (
+                    <Suspense fallback="loading register page, please wait...">
+                        <Register />
+                    </Suspense>
+                )  
             },{
                 path: "/cart",
-                element: <Cart />
+                element: (
+                    <Suspense fallback="loading cart page, please wait...">
+                        <Cart />
+                    </Suspense>
+                )
             },{
                 path: "/wishlist",
-                element: <Wishlist />
+                element: (
+                    <Suspense fallback="loading wishlist page, please wait...">
+                        <Wishlist />
+                    </Suspense>
+                )
             }
         ]
     }
