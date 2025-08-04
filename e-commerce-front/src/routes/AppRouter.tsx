@@ -1,7 +1,11 @@
+import { LottieHandler, PageSuspenseFallback } from '@components/feedback';
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+// layout
 const MainLayout = lazy(() => import("@layouts/MainLayout/MainLayout"));
+
+// pages
 const Home       = lazy(() => import("@pages/Home"));
 const Wishlist   = lazy(() => import("@pages/Wishlist"));
 const Categories = lazy(() => import("@pages/Categories"));
@@ -18,32 +22,36 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: (
-            <Suspense fallback="loading main page, please wait...">
-                <MainLayout/>
-            </Suspense>
+            <div className='w-100 min-vh-100 d-flex justify-content-center align-items-sm-center'>
+                <Suspense
+                    fallback={<LottieHandler type='InitLoading' message="loading main page, please wait..."/>}
+                    >
+                    <MainLayout/>
+                </Suspense>
+            </div>
         ),
         errorElement:<Error />,
         children: [
             {
                 index:true,
                 element: (
-                    <Suspense fallback="loading home page, please wait...">
+                    <PageSuspenseFallback>
                         <Home />
-                    </Suspense>
+                    </PageSuspenseFallback>
                 )
             },{
                 path:"/categories",
                 element:  (
-                    <Suspense fallback="loading categories page, please wait...">
+                    <PageSuspenseFallback>
                         <Categories/>
-                    </Suspense>
+                    </PageSuspenseFallback>
                 ) 
             },{
                 path:"/categories/products/:prefix",
                 element: (
-                    <Suspense fallback="loading products page, please wait...">
+                    <PageSuspenseFallback>
                         <Products />
-                    </Suspense>
+                    </PageSuspenseFallback>
                 )  ,
                 loader: ({params}) => {
                     if(typeof params.prefix !== "string" || !/^[a-z]+$/gi.test(params.prefix)){
@@ -56,37 +64,37 @@ const router = createBrowserRouter([
             },{
                 path: "/about",
                 element: (
-                    <Suspense fallback="loading about page, please wait...">
+                    <PageSuspenseFallback>
                         <About/>
-                    </Suspense>
+                    </PageSuspenseFallback>
                 )  
             },{
                 path: "/login",
                 element: (
-                    <Suspense fallback="loading login page, please wait...">
+                    <PageSuspenseFallback>
                         <Login />
-                    </Suspense>
+                    </PageSuspenseFallback>
                 )  
             },{
                 path: "/register",
                 element: (
-                    <Suspense fallback="loading register page, please wait...">
+                    <PageSuspenseFallback>
                         <Register />
-                    </Suspense>
+                    </PageSuspenseFallback>
                 )  
             },{
                 path: "/cart",
                 element: (
-                    <Suspense fallback="loading cart page, please wait...">
+                    <PageSuspenseFallback>
                         <Cart />
-                    </Suspense>
+                    </PageSuspenseFallback>
                 )
             },{
                 path: "/wishlist",
                 element: (
-                    <Suspense fallback="loading wishlist page, please wait...">
+                    <PageSuspenseFallback>
                         <Wishlist />
-                    </Suspense>
+                    </PageSuspenseFallback>
                 )
             }
         ]

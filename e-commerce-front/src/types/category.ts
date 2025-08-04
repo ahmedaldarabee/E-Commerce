@@ -1,1 +1,6 @@
-export type TCategories = { id?:number, title:string,prefix:string,img: string}
+export type TCategories = {
+    id?:number,
+    title:string,
+    prefix:string,
+    img: string
+}

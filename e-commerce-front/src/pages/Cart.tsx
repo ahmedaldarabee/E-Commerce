@@ -1,6 +1,6 @@
 import { Heading } from "@components/common"
 import { CartItemList, CartSubtotalPrice } from "@components/ecommerce"
-import { Loading } from "@components/feedback";
+import { Loading, LottieHandler } from "@components/feedback";
 import useCart from "@hooks/useCart";
 
 const Cart = () => {
@@ -8,7 +8,7 @@ const Cart = () => {
     return (
         <>
             <Heading title="cart information's"/>
-            <Loading error={error} status={loading}>
+            <Loading error={error} status={loading} type="cart">
                 { products.length ?
                 
                 <>
@@ -18,7 +18,7 @@ const Cart = () => {
                     products={products}/>
                     
                     <CartSubtotalPrice products={products} />
-                </>: ("There are no items")}
+                </>: <LottieHandler type="empty" message="There are no items"/>}
             </Loading>
         </>
     )

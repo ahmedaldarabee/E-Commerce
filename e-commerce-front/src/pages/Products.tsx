@@ -5,14 +5,15 @@ import type { TProducts } from "@customTypes/product";
 import useProducts from "@hooks/useProducts";
 
 const Products = () => {
+    // productsFullInfo that have extra information not just main records
     const {paramsPrefix,loading,productsFullInfo,error} = useProducts();
 
     return (
         <> 
             <Heading title={`${paramsPrefix}`} >products page</Heading>
-            <Loading status={loading} error={error}>
+            <Loading status={loading} error={error} type="product">
                 <GridList<TProducts>
-                // productsFullInfo rather than normal records because that have new data.
+                    emptyMessage="There are no products"
                     records={productsFullInfo}
                     renderItem={(record) => <Product {...record} />} />
             </Loading>

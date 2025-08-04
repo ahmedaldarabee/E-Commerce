@@ -9,8 +9,9 @@ const Wishlist = () => {
     return (
         <>
         <Heading title={`your wishlist`} />
-        <Loading status={loading} error={error}>
+        <Loading status={loading} error={error} type="product">
             <GridList<TProducts>
+                emptyMessage="There are no wishlist"
                 records={records}
                 renderItem={(record) => <Product {...record} />}
             />

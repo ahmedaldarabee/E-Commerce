@@ -1,27 +1,24 @@
+import { LottieHandler } from "@components/feedback";
 import { Col, Row } from "react-bootstrap";
 
 interface GridListProps<T> {
     records: T[],
-    renderItem:(record: T) => React.ReactNode; 
+    renderItem:(record: T) => React.ReactNode,
+    emptyMessage?:string
 }
 
 type THasID = {
     id?:number
 }
 
-const GridList = <T extends THasID> ({records,renderItem}: GridListProps<T>) => {
+const GridList = <T extends THasID> ({records,renderItem,emptyMessage}: GridListProps<T>) => {
 
     const dataList = records.length > 0 ? records.map((record) => (
-        <Col 
-            key={record.id}
-            xs={6}
-            md={3}
+        <Col key={record.id} xs={6} md={3}
             className="d-flex justify-content-center mb-5 mt-2">
             {renderItem(record)}
         </Col>
-        // {renderItem(record)} implementing render props pattern
-        // where as you see callback function it invoked within map - for loop
-    )) : "There are no data yet!";
+    )) : <LottieHandler type="empty" message={emptyMessage}/>;
 
     return (
         <Row> {dataList} </Row>
