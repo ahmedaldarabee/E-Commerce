@@ -97,5 +97,10 @@
       "max": 4
     }
   ],
-  "wishlist": []
+  "wishlist": [],
+  "users": [
+    {
+      "email":"darabee.info@gmail.com"
+    }
+  ]
 }
