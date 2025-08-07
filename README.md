@@ -4,6 +4,7 @@ A complete modern online store built with React, TypeScript, and Redux — follo
 
 Tech Stack
 
+Responsive Web Application
 React + Vite (Blazing fast dev experience)
 Redux Toolkit + Persist (Robust state management)
 React Router DOM (Dynamic + Protected routes)
@@ -11,8 +12,7 @@ React Hook Form + Zod + @hookform/resolvers
 Axios with abort controllers
 TypeScript (Generics, Predicates, Alias Paths, Advanced Narrowing)
 Postman (for RESTful API Testing)
-JSON Server Auth (Authentication & Fake backend)
-PWA Support
+JSON Server 
 Bootstrap CSS + clsx
 Skeletons (React Content Loader) + Lottie animations
 
@@ -35,3 +35,4 @@ Persistent Data (Session Storage)
 Optimized performance using memoization
 
 This app was built with scalability, maintainability, and developer experience in mind — structured to follow modern frontend architecture.
+
